@@ -19,26 +19,21 @@
     </header>
 
     <div class="content">
-
-      <div id='name-getter' class="message-div">
-        Enter your name
-        <input type="text" id="name" class="message-bar">
-      </div>
-
-      <button id='connector' class="big-button" onclick="connectperson();">Connect to person</button>
-
-      <!--<div class="message-box" id="message-box"></div> <!--put the messages in here-->
+      <div class="options-panel">
+        <div id='name-getter' class="message-div">
+          Enter your name
+          <input type="text" id="name" class="message-bar">
+        </div>
   
-      <div id='message-holder' class="message-div">
+        <button id='connector' class="big-button" onclick="connectperson();">Connect to person</button>
+      </div>
+      <div id='message-holder'>
         <h6 class="yourmessage">you: hello</h6>
+        <div class="msg-options">
+          <input type="text" id="msg" class="message-bar">
+          <button onclick="sendmsg();">Send Message</button>
+        </div>
       </div>
-
-      <div class="message-div">
-        Enter a message
-        <input type="text" id="msg" class="message-bar">
-      </div>
-
-      <button class="big-button" onclick="sendmsg();">Send message</button>
     </div>
 
     <script src="index.js"></script>
