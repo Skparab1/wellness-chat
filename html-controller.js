@@ -4,6 +4,8 @@ async function connectperson(){
   pname = g('name').value;
   id = pname+'00'+randnum;
 
+  openelement('loader');
+
   id = id.replaceAll(' ','');
 
   if (!linking && pname != '' && !connected){ // dont link twice, cant do with no name
@@ -46,14 +48,14 @@ async function sendmsg(){
   if (connected && msg.replaceAll(' ','') != ''){ // connected to somone, not empty message
     // first get the message
 
-    msg = encodeURI(msg);
-
     let endtime = new Date();
     let elapsedtime = endtime - starttime;
 
     g('msg').value = '';
   
     addyourmsg(msg);
+
+    msg = encodeURI(msg);
 
     (async () => {
       //      https://pst652.deta.dev/?ADDMSG=person1&msg=shubham&time=200
@@ -88,4 +90,33 @@ function addothermsg(ct, msg){
   const div = document.createElement('div');
   div.innerHTML = `  <h6 class="othermessage">${ct.replaceAll('%20',' ').split('00')[0]}: ${ decodeURI(msg.replaceAll('%20',' '))}</h6>`;
   d.appendChild(div);
+}
+
+function openelement(el){
+  let ps = document.getElementById(el);
+  ps.style.display = 'block';
+  const sleep = ms => new Promise(res => setTimeout(res, ms));
+  (async () => {
+    dimmer = 0;
+    while (dimmer <= 100){
+      ps.style.opacity = dimmer/100;
+      dimmer += 1;
+      await sleep(2);
+    }
+  })();
+}
+
+async function closedialogue(el){
+  let ps = document.getElementById(el);
+  ps.style.display = 'block';
+  const sleep = ms => new Promise(res => setTimeout(res, ms));
+  (async () => {
+    dimmer = 0;
+    while (dimmer <= 100){
+      ps.style.opacity = 1-dimmer/100;
+      dimmer += 1;
+      await sleep(2);
+    }
+    ps.style.display = 'none';
+  })();
 }

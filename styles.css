@@ -124,6 +124,17 @@ h1 {
   color: red;
 }
 
+.bigoverlay{
+  position: absolute;
+  left: 25%;
+  top: 25%;
+  width: 50%;
+  height: 50%;
+  background-color: white;
+  display: none;
+  z-index: 2;
+}
+
 h1 {
   font-size: 4rem;
   color: white;

@@ -54,6 +54,8 @@ var storedlastmsgs = [];
 
                       starttime = new Date();
 
+                      closedialogue('loader');
+
                       // now clear the thing if u have the higher id
                       let otherid = parseInt(gottenonline[u].replace('%20',' ').split('00')[1]);
                       console.log('otherid'+otherid+' ourid'+randnum);
