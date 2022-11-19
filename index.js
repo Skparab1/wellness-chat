@@ -4,7 +4,7 @@ const sleep = ms => new Promise(res => setTimeout(res, ms));
 
 
 // universal random id
-var pname = 'skparab1';
+var pname = g('name').value;
 var randnum = Math.floor(Math.random()*1000);
 
 var linking = false;
@@ -12,6 +12,11 @@ var gottenonline = [];
 
 var id = pname+'00'+randnum;
 console.log(id);
+
+var connected = false;
+var connectedtarget = '';
+
+var starttime = 0;
 
 (async () => {
 
@@ -41,14 +46,24 @@ console.log(id);
                     if (gottenonline[u] != id){ // not urself
                       // we have a target
                       linking = false;
-                      alert('connected with '+gottenonline[u]);
+                      connected = true;
+                      g('name-getter').style.display = 'none';
+
+                      starttime = new Date();
 
                       // now clear the thing if u have the higher id
-                      let otherid = parseInt(gottenonline[u].split('00')[1]);
+                      let otherid = parseInt(gottenonline[u].replace('%20',' ').split('00')[1]);
                       console.log('otherid'+otherid+' ourid'+randnum);
                       if (randnum > otherid){ // we can clear
                         clearlinker();
                       }
+
+                      connectedtarget = gottenonline[u].replace('%20',' ');
+
+                      g('connector').textContent = 'Connected to '+gottenonline[u].replace('%20',' ').split('00')[0];
+
+                      break; // so that you dont try to link to others
+                      // in theory this wud break simultaenous linking
 
                     }
                     u += 1;
@@ -57,6 +72,10 @@ console.log(id);
             })
         })();
       }
+    }
+
+    // now if ur connected
+    if (connected){ //and cpnnectedtarget is the person
     }
     
     await sleep(1000); // garuntee not to call 2 times
