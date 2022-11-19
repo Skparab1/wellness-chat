@@ -116,6 +116,14 @@ h1 {
   padding: 0;
 }
 
+.othermessage{
+  text-align: right;
+  float: right;
+  margin: 0;
+  padding: 0;
+  color: red;
+}
+
 h1 {
   font-size: 4rem;
   color: white;

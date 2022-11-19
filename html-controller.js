@@ -46,10 +46,13 @@ async function sendmsg(){
   if (connected && msg.replaceAll(' ','') != ''){ // connected to somone, not empty message
     // first get the message
 
+    msg = encodeURI(msg);
+
     let endtime = new Date();
     let elapsedtime = endtime - starttime;
 
     g('msg').value = '';
+  
     addyourmsg(msg);
 
     (async () => {
@@ -83,6 +86,6 @@ function addothermsg(ct, msg){
   let d = g('message-holder');
 
   const div = document.createElement('div');
-  div.innerHTML = `  <h6 class="yourmessage">${ct.replaceAll('%20',' ').split('00')[0]}: ${msg.replaceAll('%20',' ')}</h6>`;
+  div.innerHTML = `  <h6 class="othermessage">${ct.replaceAll('%20',' ').split('00')[0]}: ${ decodeURI(msg.replaceAll('%20',' '))}</h6>`;
   d.appendChild(div);
 }

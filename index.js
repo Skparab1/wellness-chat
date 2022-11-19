@@ -115,3 +115,20 @@ var storedlastmsgs = [];
     await sleep(1000); // garuntee not to call 2 times
   }
 })();
+
+
+(async () => {
+  window.addEventListener("keydown", function(event) {
+    if (event.defaultPrevented) {
+      return;
+    }
+  
+    let actkey = event.code.replace('Key','').replace('Digit','')
+    console.log(actkey);
+
+    if (actkey == 'Enter'){
+      sendmsg();
+    }
+
+  }, true);
+})();
