@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta name='og:viewport' content='width=device-width,initial-scale=1'>
+    <meta name="og:description" content="Isolate records">
+    <!meta property="og:image" content="https://raw.githubusercontent.com/isolaterecords/isolaterecords.github.io/main/images/isolate.png">
+    <title>Wellness Chat</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/isolaterecords/isolaterecords.github.io/main/images/isolate.png">
+  </head>
+  <body>
+    <script src="html-controller.js"></script>
+
+    <button class="big-button" onclick="connectperson();">Connect to person</button>
+
+    <div class="message-box"></div> <!--put the messages in here--> 
+
+    <h3>Enter a message</h3>
+    <input type="text" id="msg" class="message-bar">
+    <button class="big-button" onclick="sendmsg();">Send message</button>
+
+    <script src="index.js"></script>
+  </body>
+</html>
