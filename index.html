@@ -14,13 +14,22 @@
   <body>
     <script src="html-controller.js"></script>
 
-    <button class="big-button" onclick="connectperson();">Connect to person</button>
+    <header>
+      <h1>Wellness Chat</h1>
+    </header>
 
-    <div class="message-box" id="message-box"></div> <!--put the messages in here--> 
+    <div class="content">
+      <button class="big-button" onclick="connectperson();">Connect to person</button>
 
-    <h3>Enter a message</h3>
-    <input type="text" id="msg" class="message-bar">
-    <button class="big-button" onclick="sendmsg();">Send message</button>
+      <!--<div class="message-box" id="message-box"></div> <!--put the messages in here-->
+  
+      <div class="message-div">
+        Enter a message
+        <input type="text" id="msg" class="message-bar">
+      </div>
+
+      <button class="big-button" onclick="sendmsg();">Send message</button>
+    </div>
 
     <script src="index.js"></script>
   </body>
