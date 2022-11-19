@@ -2,12 +2,16 @@ body {
   margin: 0;
   background-color: rgb(236, 236, 236);
   box-sizing: border-box;
-  overflow-x: hidden;
   font-family: Arial, Helvetica, sans-serif;
 }
 
+:root {
+  --base-color: #004aad;
+  --accent-color: #8c52ff;
+}
+
 header {
-  background-color: dodgerblue;
+  background-color: var(--base-color);
   padding: 1rem;
   text-align: center;
 }
@@ -20,32 +24,33 @@ h1 {
 
 .content {
   position: relative;
-  width: 50%;
   left: 50%;
   top: 4rem;
   transform: translateX(-50%);
-  display: flex;
-  gap: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem
+}
+
+.left-container {
+  justify-self: end;
+}
+
+.right-container {
+  justify-self: start;
 }
 
 .options-panel {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
   align-items: center;
+  gap: 1rem;
 }
 
-.yourmessage{
-  text-align: right;
-  float: right;
-  margin: 0px;
-  padding: 0px;
-}
-
-.big-button{
+.big-button {
   width: 24rem;
   cursor: pointer;
-  background-color: dodgerblue;
+  background-color: var(--base-color);
   color: white;
   font-size: 2rem;
   padding: 1rem;
@@ -53,22 +58,11 @@ h1 {
   border-radius: 2rem;
 }
 
-.big-button:hover {
-  background-color: deepskyblue;
-}
-
-#message-holder {
-  background-color: white;
-  width: 24rem;
-  padding: 1rem;
-  position: relative;
-}
-
 .message-div {
   display: inherit;
   flex-direction: inherit;
   align-items: inherit;
-  background-color: dodgerblue;
+  background-color: var(--base-color);
   gap: 1rem;
   padding: 1rem 0 1rem 0;
   width: 24rem;
@@ -77,31 +71,54 @@ h1 {
   font-size: 2rem;
 }
 
+.big-button:hover {
+  background-color: var(--accent-color);
+}
+
+#message-holder {
+  background-color: white;
+  width: 24rem;
+  padding: 1rem;
+  position: relative;
+  height: 24rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  border: 0.25rem solid var(--base-color);
+  overflow: hidden;
+}
+
 .message-bar{
-  border: 0.25rem solid lightskyblue;
+  border: 0.25rem solid var(--accent-color);
+  border-radius: 20000px;
+  padding-left: 0.5rem;  
 }
 
 .msg-options {
   position: absolute;
   left: 0;
   bottom: 0;
+  right: 0;
   padding: inherit;
+  background-color: var(--base-color);
   display: flex;
-  gap: 1rem;
-  align-items: center;
-  background-color: dodgerblue;
+  justify-content: space-between;
 }
 
-.message-box{
-  width: 50%;
-  background: rgb(75,75,75);
-  color: white;
-  text-align: center;
-} 
+#msg {
+  width: 80%;
+}
 
+.yourmessage{
+  text-align: right;
+  float: right;
+  margin: 0;
+  padding: 0;
+}
 
 h1 {
   font-size: 4rem;
+  color: white;
 }
 
 h2 {
