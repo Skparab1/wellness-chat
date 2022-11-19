@@ -49,6 +49,9 @@ async function sendmsg(){
     let endtime = new Date();
     let elapsedtime = endtime - starttime;
 
+    g('msg').value = '';
+    addyourmsg(msg);
+
     (async () => {
       //      https://pst652.deta.dev/?ADDMSG=person1&msg=shubham&time=200
       fetch((`https://pst652.deta.dev/?ADDMSG=${id}&msg=${msg}&time=${elapsedtime}`))
@@ -59,11 +62,27 @@ async function sendmsg(){
             console.log(data);
         })
     })();
+
   }
 
 }
 
-
 function g(el){
   return document.getElementById(el);
+}
+
+function addyourmsg(msg){
+  let d = g('message-holder');
+
+  const div = document.createElement('div');
+  div.innerHTML = `  <h6 class="yourmessage">you: ${msg}</h6>`;
+  d.appendChild(div);
+}
+
+function addothermsg(ct, msg){
+  let d = g('message-holder');
+
+  const div = document.createElement('div');
+  div.innerHTML = `  <h6 class="yourmessage">${ct.replaceAll('%20',' ').split('00')[0]}: ${msg.replaceAll('%20',' ')}</h6>`;
+  d.appendChild(div);
 }

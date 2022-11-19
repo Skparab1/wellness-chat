@@ -30,6 +30,13 @@ h1 {
   transform: translateX(-50%);
 }
 
+.yourmessage{
+  text-align: right;
+  float: right;
+  margin: 0px;
+  padding: 0px;
+}
+
 .big-button{
   width: 24rem;
   cursor: pointer;
