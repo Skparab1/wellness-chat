@@ -135,6 +135,10 @@ h1 {
   z-index: 2;
 }
 
+.bigtext{
+  text-align: center;
+}
+
 h1 {
   font-size: 4rem;
   color: white;
