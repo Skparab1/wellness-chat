@@ -1,19 +1,19 @@
 async function connectperson(){
-  // ok basically we have an id right
-
+  // ok absically we have an id right
+  
   pname = g('name').value;
   id = pname+'00'+randnum;
-
+  
   id = id.replaceAll(' ','');
-
+  
   if (!linking && pname != '' && !connected){ // dont link twice, cant do with no name
     linking = true;
-
+  
     const connectButton = g('connector')
     connectButton.firstChild.textContent = 'Connecting...';
     console.log(connectButton);
     connectButton.children[0].style.display = 'inline-block';
-
+  
     // and then put in the person
     (async () => {
       fetch((`https://pst652.deta.dev/?ADDLINKER=${id}`))
@@ -24,14 +24,14 @@ async function connectperson(){
             console.log(data);
         })
     })();
-
+  
   } else if (pname == ''){
     alert('please enter a name first');
     g('name-getter').style.border = '3px solid red';
   }
-}
-
-function clearlinker(){
+ }
+  
+ function clearlinker(){
   (async () => {
     fetch((`https://pst652.deta.dev/?LINKCLEAR`))
       .then(response => {
@@ -41,23 +41,22 @@ function clearlinker(){
           console.log(data);
       })
   })();
-}
-
-async function sendmsg(){
-
+ }
+  
+ async function sendmsg(){
+  
   let msg = g('msg').value;
   if (connected && msg.replaceAll(' ','') != ''){ // connected to somone, not empty message
     // first get the message
-
+  
     let endtime = new Date();
     let elapsedtime = endtime - starttime;
-
-    g('msg').value = '';
   
-    addyourmsg(msg);
-
+    g('msg').value = '';
+     addyourmsg(msg);
+  
     msg = encodeURI(msg);
-
+  
     (async () => {
       //      https://pst652.deta.dev/?ADDMSG=person1&msg=shubham&time=200
       fetch((`https://pst652.deta.dev/?ADDMSG=${id}&msg=${msg}&time=${elapsedtime}`))
@@ -68,15 +67,15 @@ async function sendmsg(){
             console.log(data);
         })
     })();
-
+  
   }
-
-}
-
-function g(el){
+  
+ }
+  
+ function g(el){
   return document.getElementById(el);
-}
-
+ }
+  
 function addyourmsg(msg){
   let d = g('messages');
 
@@ -96,8 +95,8 @@ function addothermsg(ct, msg){
   div.innerHTML = `  <h6>${ decodeURI(msg.replaceAll('%20',' '))}</h6>`;
   d.appendChild(div);
 }
-
-function openelement(el){
+  
+ function openelement(el){
   let ps = document.getElementById(el);
   ps.style.display = 'block';
   const sleep = ms => new Promise(res => setTimeout(res, ms));
@@ -109,9 +108,9 @@ function openelement(el){
       await sleep(2);
     }
   })();
-}
-
-async function closedialogue(el){
+ }
+  
+ async function closedialogue(el){
   let ps = document.getElementById(el);
   ps.style.display = 'block';
   const sleep = ms => new Promise(res => setTimeout(res, ms));
@@ -124,26 +123,27 @@ async function closedialogue(el){
     }
     ps.style.display = 'none';
   })();
-}
-
-function playc4(){
-  g('connect-4').style.display = 'block';
-}
-
-function hoverboard(){
+ }
+  
+ function playc4(){
+  g('connect-4').style.opacity = 1;
+  openedconnect4 = true;
+ }
+  
+ function hoverboard(){
   var e = window.event;
-
+  
   var x = e.clientX;
-  var y = e.clientY+window.scrollY;//-window.innerHeight;
-
-  console.log(x,y,width*0.1+1*0.8/8*width+cx, width*0.1+1*0.8/8*width+0.01*width+g('cvs').offsetLeft);
-
+  var y = e.clientY+window.scrollY-30;//-window.innerHeight;
+  
+  //console.log(x,y,width*0.1+1*0.8/8*width+cx, width*0.1+1*0.8/8*width+0.01*width+g('cvs').offsetLeft);
+  
   // now figure out if it lies in the boxes
   let w = 1;
   while (w <= 7){
     ctx.beginPath();
     //ctx.arc(width*0.1+w*0.8/8*width, height*0.1+1*0.4/6*height, 0.28/8*width,0, Math.PI*2);
-    if (x >= width*0.1+w*0.8/8*width-0.28/8*width+cx && x <= width*0.1+w*0.8/8*width+0.28/8*width+cx && y >= height*0.1-1*0.4/6*height+g('cvs').offsetHeight && y <= height*0.1-1*0.4/6*height+0.28/8*width+g('cvs').offsetHeight){
+    if (x >= width*0.1+w*0.8/8*width-0.28/8*width+cx && x <= width*0.1+w*0.8/8*width+0.28/8*width+cx && y >= height*0.1-1*0.4/6*height+g('cvs').offsetHeight-6 && y <= height*0.1-1*0.4/6*height+0.28/8*width+g('cvs').offsetHeight){
       console.log('hovering hover',w);
       ctx.fillStyle = 'rgb(255,0,0)';
       ctx.arc(width*0.1+w*0.8/8*width, height*0.1+1*0.4/6*height, 0.28/8*width,0, Math.PI*2);
@@ -155,36 +155,107 @@ function hoverboard(){
     }
     w += 1;
   }
+  }
   
-}
-
-function processpos(){
+ function processpos(){
   var e = window.event;
-
+  
   var x = e.clientX;
-  var y = e.clientY+window.scrollY;
-
+  var y = e.clientY+window.scrollY-30;
+  
   // now figure out if it lies in the boxes
-
+  
   let w = 1;
   while (w <= 7 && myturn){
     ctx.beginPath();
     //ctx.arc(width*0.1+w*0.8/8*width, height*0.1+1*0.4/6*height, 0.28/8*width,0, Math.PI*2);
-    if (x >= width*0.1+w*0.8/8*width-0.28/8*width && x <= width*0.1+w*0.8/8*width+0.28/8*width && y >= height*0.1-1*0.4/6*height+g('cvs').offsetHeight && y <= height*0.1-1*0.4/6*height+0.28/8*width+g('cvs').offsetHeight){
+    if (x >= width*0.1+w*0.8/8*width-0.28/8*width+cx && x <= width*0.1+w*0.8/8*width+0.28/8*width+cx && y >= height*0.1-1*0.4/6*height+g('cvs').offsetHeight-6 && y <= height*0.1-1*0.4/6*height+0.28/8*width+g('cvs').offsetHeight){
       ctx.fillStyle = 'rgb(255,0,0)';
-
+  
+      let dropped = false;
       let u = 5;
       while (u >= 0){
         if (currentgrid[u][w] == 0){ // empty
-          currentgrid[u][w] = 1;
+          currentgrid[u][w] = mycolor;
           ctx.arc(width*0.1+w*0.8/8*width, height*0.1+(u+2)*0.4/6*height, 0.28/8*width,0, Math.PI*2);
           myturn = false;
+          g('bt').textContent = "Opponent's Turn!";
+          dropped = true;
           break;
         }
         u -= 1;
       }
       ctx.fill();
+  
+      let thestr = '';
+      if (dropped){
+        justplayed = new Date();
+        // conv to string and then write
+        let p = 0;
+        while (p < currentgrid.length){
+          let c = 0;
+          while (c < currentgrid[p].length){
+            thestr = thestr + 'a' + currentgrid[p][c];
+            c += 1;
+          }
+          thestr += 'b';
+          p += 1;
+        }
+        console.log(thestr);
+        (async () => {
+          fetch((`https://pst652.deta.dev/?CHATWRITE=${combid}&data=${thestr}`))
+            .then(response => {
+                return response.json();
+            })
+            .then(data => {
+                console.log(data);
+            })
+        })();
+      }
     }
     w += 1;
   }
-}
+ }
+  
+ function redrawc4(){
+  let w = 1;
+  while (w < currentgrid[0].length){
+    let h = 1;
+    while (h < currentgrid.length){
+      ctx.beginPath();
+      if (currentgrid[h][w] == 0){
+        ctx.fillStyle = 'rgb(255,255,255)';
+      } else if (currentgrid[h][w] == mycolor){
+        ctx.fillStyle = 'rgb(255,0,0)';
+      } else if (mycolor == 1 && currentgrid[h][w] == 2){
+        ctx.fillStyle = 'rgb(255,255,0)';
+      } else if (mycolor == 2 && currentgrid[h][w] == 1){
+        ctx.fillStyle = 'rgb(255,255,0)';
+      }
+      ctx.arc(width*0.1+w*0.8/8*width, height*0.1+(h+2)*0.4/6*height, 0.28/8*width,0, Math.PI*2);
+      ctx.fill();
+      h += 1;
+    }
+    w += 1;
+  }
+ }
+ function ismyturn(){
+  let r = 0;
+  let mycount = 0;
+  let othercount = 9;
+  while (r < currentgrid.length){
+    let e = 0;
+    while (e < currentgrid[r].length){
+      if (currentgrid[r][e] == mycolor || currentgrid[r][e] == String(mycolor)){
+        mycount += 1;
+      } else if ((currentgrid[r][e] == 2 && mycolor == 1) || (currentgrid[r][e] == 1 && mycolor == 2)){
+        othercount += 1;
+      }
+      e += 1;
+    }
+    r += 1;
+  }
+  
+  return (mycount > othercount || (mycount == othercount && mycolor == 1));
+ }
+ 

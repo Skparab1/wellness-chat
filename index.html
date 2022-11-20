@@ -38,10 +38,12 @@
 
           <button id='c4' class="big-button" onclick="playc4();" style="display: none;">Play connect 4</button>
 
-          <div id='connect-4' class="message-div" style="height: 520px;" onclick="processpos();" onmousemove="hoverboard();">
-            <h1 class="bigtext">Connect 4</h1>
+          <div id='connect-4' class="message-div" style="height: 520px; opacity: 0;" onclick="processpos();" onmousemove="hoverboard();">
+            <h1 id='bt' class="bigtext">Connect 4</h1>
             <div id='canvas-container'>
-              <canvas id='cvs' class="myCanvas"></canvas>
+              <canvas id='cvs' class="myCanvas" style="z-index: 3;">
+                <p>Rip ur browser doesnt support canvas :(( u shud switch to a better browser...</p>
+              </canvas>
             </div>
           </div>
         </div>
