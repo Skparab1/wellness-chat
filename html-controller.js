@@ -138,7 +138,7 @@ function addothermsg(ct, msg){
   var e = window.event;
   
   var x = e.clientX;
-  var y = e.clientY+window.scrollY-185;//-window.innerHeight;
+  var y = e.clientY+window.scrollY-250;//-window.innerHeight;
   
   //console.log(x,y,width*0.1+1*0.8/8*width+cx, width*0.1+1*0.8/8*width+0.01*width+g('cvs').offsetLeft);
   
@@ -165,7 +165,7 @@ function addothermsg(ct, msg){
   var e = window.event;
   
   var x = e.clientX;
-  var y = e.clientY+window.scrollY-185;
+  var y = e.clientY+window.scrollY-250;
   
   // now figure out if it lies in the boxes
   
