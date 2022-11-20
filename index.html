@@ -31,6 +31,17 @@
             <input type="text" id="name" class="message-bar">
           </div>
           <button id='connector' class="big-button" onclick="connectperson();">Connect to person</button>
+
+          <button id='c4' class="big-button" onclick="playc4();" style="display: none;">Play connect 4</button>
+
+          <div id='connect-4' class="message-div" style="height: 520px;" onclick="processpos();" onmousemove="hoverboard();">
+            <h1 class="bigtext">Connect 4</h1>
+            <div id='canvas-container'>
+              <canvas id='cvs' class="myCanvas">
+                <p>Rip ur browser doesnt support canvas :(( u shud switch to a better browser...</p>
+              </canvas>
+            </div>
+          </div>
         </div>
       </div>
 

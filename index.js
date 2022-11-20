@@ -21,6 +21,44 @@ var targetmessages = [];
 var targettimes = [];
 var storedlastmsgs = [];
 
+var myturn = true;
+
+var currentgrid = [[0,0,0,0,0,0,0],
+                   [0,0,0,0,0,0,0],
+                   [0,0,0,0,0,0,0],
+                   [0,0,0,0,0,0,0],
+                   [0,0,0,0,0,0,0],
+                   [0,0,0,0,0,0,0]]
+
+const canvas = document.querySelector('.myCanvas');
+const ctx = canvas.getContext('2d');
+const width = canvas.width = g('connect-4').offsetWidth; 
+const height = canvas.height = g('connect-4').offsetHeight;
+
+ctx.fillStyle = 'rgb(230,230,230)';
+ctx.fillRect(width*0.1,height*0.1,width*0.8,height*0.5);
+
+ctx.fillStyle = 'rgb(255,255,255)';
+// 7*6 devide height 0.4/6
+let w = 1;
+while (w <= 7){
+  let h = 1;
+  while (h <= 7){
+    ctx.beginPath();
+    ctx.arc(width*0.1+w*0.8/8*width, height*0.1+h*0.4/6*height, 0.28/8*width,0, Math.PI*2);
+    ctx.fill();
+    h += 1;
+  }
+  w += 1;
+}
+
+let cx = g('connect-4').offsetLeft;
+let cy = g('connect-4').offsetTop;
+
+g('connect-4').style.position = 'absolute';
+g('connect-4').style.left = cx+'px';
+g('connect-4').style.top = cy+'px';
+
 (async () => {
 
   while (true){
@@ -56,11 +94,15 @@ var storedlastmsgs = [];
 
                       closedialogue('loader');
 
+                      g('c4').style.display = 'block';
+                      g('name-getter').style.height = g('connector').offsetHeight;
+
                       // now clear the thing if u have the higher id
                       let otherid = parseInt(gottenonline[u].replace('%20',' ').split('00')[1]);
                       console.log('otherid'+otherid+' ourid'+randnum);
                       if (randnum > otherid){ // we can clear
                         clearlinker();
+                        myturn = true;
                       }
 
                       connectedtarget = gottenonline[u].replace('%20',' ');

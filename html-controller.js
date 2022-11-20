@@ -124,3 +124,66 @@ async function closedialogue(el){
     ps.style.display = 'none';
   })();
 }
+
+function playc4(){
+  g('connect-4').style.display = 'block';
+}
+
+function hoverboard(){
+  var e = window.event;
+
+  var x = e.clientX;
+  var y = e.clientY+window.scrollY;//-window.innerHeight;
+
+  console.log(x,y,width*0.1+1*0.8/8*width+cx, width*0.1+1*0.8/8*width+0.01*width+g('cvs').offsetLeft);
+
+  // now figure out if it lies in the boxes
+  let w = 1;
+  while (w <= 7){
+    ctx.beginPath();
+    //ctx.arc(width*0.1+w*0.8/8*width, height*0.1+1*0.4/6*height, 0.28/8*width,0, Math.PI*2);
+    if (x >= width*0.1+w*0.8/8*width-0.28/8*width+cx && x <= width*0.1+w*0.8/8*width+0.28/8*width+cx && y >= height*0.1-1*0.4/6*height+g('cvs').offsetHeight && y <= height*0.1-1*0.4/6*height+0.28/8*width+g('cvs').offsetHeight){
+      console.log('hovering hover',w);
+      ctx.fillStyle = 'rgb(255,0,0)';
+      ctx.arc(width*0.1+w*0.8/8*width, height*0.1+1*0.4/6*height, 0.28/8*width,0, Math.PI*2);
+      ctx.fill();
+    } else {
+      ctx.fillStyle = 'rgb(255,255,255)';
+      ctx.arc(width*0.1+w*0.8/8*width, height*0.1+1*0.4/6*height, 0.28/8*width,0, Math.PI*2);
+      ctx.fill();
+    }
+    w += 1;
+  }
+  
+}
+
+function processpos(){
+  var e = window.event;
+
+  var x = e.clientX;
+  var y = e.clientY+window.scrollY;
+
+  // now figure out if it lies in the boxes
+
+  let w = 1;
+  while (w <= 7 && myturn){
+    ctx.beginPath();
+    //ctx.arc(width*0.1+w*0.8/8*width, height*0.1+1*0.4/6*height, 0.28/8*width,0, Math.PI*2);
+    if (x >= width*0.1+w*0.8/8*width-0.28/8*width && x <= width*0.1+w*0.8/8*width+0.28/8*width && y >= height*0.1-1*0.4/6*height+g('cvs').offsetHeight && y <= height*0.1-1*0.4/6*height+0.28/8*width+g('cvs').offsetHeight){
+      ctx.fillStyle = 'rgb(255,0,0)';
+
+      let u = 5;
+      while (u >= 0){
+        if (currentgrid[u][w] == 0){ // empty
+          currentgrid[u][w] = 1;
+          ctx.arc(width*0.1+w*0.8/8*width, height*0.1+(u+2)*0.4/6*height, 0.28/8*width,0, Math.PI*2);
+          myturn = false;
+          break;
+        }
+        u -= 1;
+      }
+      ctx.fill();
+    }
+    w += 1;
+  }
+}
