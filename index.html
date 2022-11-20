@@ -37,9 +37,7 @@
           <div id='connect-4' class="message-div" style="height: 520px;" onclick="processpos();" onmousemove="hoverboard();">
             <h1 class="bigtext">Connect 4</h1>
             <div id='canvas-container'>
-              <canvas id='cvs' class="myCanvas">
-                <p>Rip ur browser doesnt support canvas :(( u shud switch to a better browser...</p>
-              </canvas>
+              <canvas id='cvs' class="myCanvas"></canvas>
             </div>
           </div>
         </div>
@@ -47,8 +45,8 @@
 
       <div class="right-container">
         <div id="message-holder">
-          <div id="messages">
-          </div>
+          <div id="chat-name"></div>
+          <div id="messages"></div>
           <div class="msg-options">
             <input type="text" id="msg" class="message-bar">
             <button onclick="sendmsg();">send</button>

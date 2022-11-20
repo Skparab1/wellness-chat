@@ -107,7 +107,9 @@ g('connect-4').style.top = cy+'px';
 
                       connectedtarget = gottenonline[u].replace('%20',' ');
 
-                      g('connector').textContent = 'Connected to '+gottenonline[u].replace('%20',' ').split('00')[0];
+                      let name = gottenonline[u].replace('%20',' ').split('00')[0];
+                      g('connector').textContent = 'Connected to '+ name;
+                      g('chat-name').textContent = name;
 
                       break; // so that you dont try to link to others
                       // in theory this wud break simultaenous linking

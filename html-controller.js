@@ -92,7 +92,7 @@ function addothermsg(ct, msg){
   const div = document.createElement('div');
   div.classList.add("message");
   div.classList.add("other-message");
-  div.innerHTML = `  <h6>${ct.replaceAll('%20',' ').split('00')[0]}: ${ decodeURI(msg.replaceAll('%20',' '))}</h6>`;
+  div.innerHTML = `  <h6>${ decodeURI(msg.replaceAll('%20',' '))}</h6>`;
   d.appendChild(div);
 }
 
