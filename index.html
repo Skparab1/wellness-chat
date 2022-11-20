@@ -24,8 +24,8 @@
       <img src="images/loading.gif">
     </div>
 
-    <div class="content">
-      <div class="left-container">
+    <div id="content" class="content">
+      <div id="left" class="left-container">
         <div class="options-panel">
           <div id='name-getter' class="message-div">
             Enter your name
@@ -41,8 +41,7 @@
             <div class="buttons">
               <button onclick="togglechat();"><i class="fa-solid fa-message"></i></button>
               <button onclick="playfromstart();"><i class="fa-solid fa-headphones-simple"></i></button>
-              <button onclick="audio.play();"><i class="fa-solid fa-circle-play"></i></button>
-              <button onclick="audio.pause();"><i class="fa-solid fa-circle-pause"></i></button>
+              <button id="playpause" onclick="playOrPause();"><i class="fa-solid fa-circle-pause"></i></button>
               <button onclick="togglegame();"><i class="fa-solid fa-gamepad"></i></button>
               <button onclick="closeit();" id="close"><i class="fa-solid fa-xmark"></i></button>
             </div>

@@ -1,3 +1,5 @@
+let playing;
+
 async function connectperson(){
   // ok absically we have an id right
   
@@ -261,10 +263,14 @@ function addothermsg(ct, msg){
 
 function togglechat(){
   if (chatopen){
-    g('message-holder').style.opacity = 0;
+    g('message-holder').style.display = 'none';
+    g('content').style.gridTemplateColumns = '1fr';
+    g('left').style.justifySelf = 'unset';
     chatopen = false;
   } else {
-    g('message-holder').style.opacity = 1;
+    g('message-holder').style.display = 'flex';
+    g('content').style.gridTemplateColumns = 'repeat(2, 1fr)';
+    g('left').style.justifySelf = 'end';
     chatopen = true;
   }
 }
@@ -284,12 +290,50 @@ function closeit(){
     g('connect-4').style.opacity = 0;
     openedconnect4 = false;
   } else if (chatopen){
-    g('message-holder').style.opacity = 0;
+    g('message-holder').style.display = 'none';
+    g('content').style.gridTemplateColumns = '1fr';
+    g('left').style.justifySelf = 'unset';
     chatopen = false;
   }
 }
 
 function playfromstart(){
   audio.currentTime = 0;
+  playing = true;
+
+  const button = g('playpause');
+  button.removeChild(button.firstChild);
+  const newButton = document.createElement('i');
+  newButton.classList.add('fa-solid');
+  newButton.classList.add('fa-circle-pause');
+  button.appendChild(newButton);
+  button.style.backgroundColor = 'var(--accent-color)';
+  
   audio.play();
+}
+
+function playOrPause() {
+  const button = g('playpause');
+
+  if (playing) {
+    audio.pause();
+    playing = false;
+    button.removeChild(button.firstChild);
+    const newButton = document.createElement('i');
+    newButton.classList.add('fa-solid');
+    newButton.classList.add('fa-circle-play');
+    button.appendChild(newButton);
+    button.style.backgroundColor = 'var(--negative-color)';
+  }
+
+  else {
+    audio.play();
+    playing = true;
+    button.removeChild(button.firstChild);
+    const newButton = document.createElement('i');
+    newButton.classList.add('fa-solid');
+    newButton.classList.add('fa-circle-pause');
+    button.appendChild(newButton);
+    button.style.backgroundColor = 'var(--accent-color)';
+  }
 }

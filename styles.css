@@ -8,6 +8,7 @@ body {
 :root {
   --base-color: hsl(214, 100%, 34%);
   --accent-color: hsl(260, 100%, 66%);
+  --negative-color: hsl(0, 93%, 28%);
 }
 
 header {
@@ -93,7 +94,7 @@ h1 {
 }
 
 #close {
-  background-color: hsl(0, 93%, 28%);
+  background-color: var(--negative-color);
 }
 
 .buttons button:hover {
