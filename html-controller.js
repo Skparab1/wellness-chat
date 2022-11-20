@@ -86,6 +86,7 @@ function addyourmsg(msg){
   div.classList.add("your-message");
   div.innerHTML = `  <h6>${msg}</h6>`;
   d.appendChild(div);
+  d.scrollTop = d.scrollHeight;
 }
 
 function addothermsg(ct, msg){
@@ -96,6 +97,7 @@ function addothermsg(ct, msg){
   div.classList.add("other-message");
   div.innerHTML = `  <h6>${ decodeURI(msg.replaceAll('%20',' '))}</h6>`;
   d.appendChild(div);
+  d.scrollTop = d.scrollHeight;
 }
   
  function openelement(el){
@@ -308,7 +310,7 @@ function playfromstart(){
   newButton.classList.add('fa-circle-pause');
   button.appendChild(newButton);
   button.style.backgroundColor = 'var(--accent-color)';
-  
+
   audio.play();
 }
 
