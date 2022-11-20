@@ -78,7 +78,6 @@ h1 {
 #message-holder {
   background-color: white;
   width: 24rem;
-  padding: 1rem;
   position: relative;
   height: 24rem;
   border-radius: 2rem;
@@ -88,6 +87,15 @@ h1 {
   overflow: hidden;
 }
 
+#messages {
+  height: 90%;
+  padding: 1rem;
+  display: inherit;
+  flex-direction: inherit;
+  gap: 0.5rem;
+  overflow-y: auto;
+}
+
 .message-bar{
   border: 0.25rem solid var(--accent-color);
   border-radius: 20000px;
@@ -95,33 +103,31 @@ h1 {
 }
 
 .msg-options {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  padding: inherit;
+  height: 10%;
   background-color: var(--base-color);
   display: flex;
   justify-content: space-between;
+  padding: 1rem;
 }
 
 #msg {
   width: 80%;
 }
 
-.yourmessage{
-  text-align: right;
-  float: right;
-  margin: 0;
-  padding: 0;
+.message {
+  background-color: var(--accent-color);
+  color: white;
+  width: fit-content;
+  word-break: break-word;
+  font-size: 2rem;
+  padding: 1rem;
+  border-radius: 1rem;
 }
 
-.othermessage{
-  text-align: right;
-  float: right;
-  margin: 0;
-  padding: 0;
-  color: red;
+.your-message {
+  background-color: var(--base-color);
+  margin-left: auto;
+  margin-right: 0;
 }
 
 .bigoverlay{
@@ -142,6 +148,10 @@ h1 {
 
 h2 {
   font-size: 2rem;
+}
+
+h6 {
+  margin: 0;
 }
 
 a {

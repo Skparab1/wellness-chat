@@ -77,18 +77,22 @@ function g(el){
 }
 
 function addyourmsg(msg){
-  let d = g('message-holder');
+  let d = g('messages');
 
   const div = document.createElement('div');
-  div.innerHTML = `  <h6 class="yourmessage">you: ${msg}</h6>`;
+  div.classList.add("message");
+  div.classList.add("your-message");
+  div.innerHTML = `  <h6>${msg}</h6>`;
   d.appendChild(div);
 }
 
 function addothermsg(ct, msg){
-  let d = g('message-holder');
+  let d = g('messages');
 
   const div = document.createElement('div');
-  div.innerHTML = `  <h6 class="othermessage">${ct.replaceAll('%20',' ').split('00')[0]}: ${ decodeURI(msg.replaceAll('%20',' '))}</h6>`;
+  div.classList.add("message");
+  div.classList.add("other-message");
+  div.innerHTML = `  <h6>${ct.replaceAll('%20',' ').split('00')[0]}: ${ decodeURI(msg.replaceAll('%20',' '))}</h6>`;
   d.appendChild(div);
 }
 
