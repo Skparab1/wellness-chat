@@ -92,8 +92,16 @@ h1 {
   cursor: pointer;
 }
 
+#close {
+  background-color: hsl(0, 93%, 28%);
+}
+
 .buttons button:hover {
   background-color: hsl(260, 100%, 60%)
+}
+
+#close:hover {
+  background-color: hsl(0, 93%, 22%);
 }
 
 #connector {
