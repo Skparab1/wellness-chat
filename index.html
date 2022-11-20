@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="spinkit.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <script src="https://kit.fontawesome.com/071fe13fd0.js" crossorigin="anonymous"></script>
     <!link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/isolaterecords/isolaterecords.github.io/main/images/isolate.png">
   </head>
   <body>
@@ -17,7 +18,6 @@
 
     <header>
       <h1>Wellness Chat</h1>
-      <div class="sk-plane"></div>
     </header>
 
     <div id='loader' class="bigoverlay">
@@ -53,7 +53,7 @@
           <div id="messages"></div>
           <div class="msg-options">
             <input type="text" id="msg" class="message-bar">
-            <button onclick="sendmsg();">send</button>
+            <button class="send-message" onclick="sendmsg();"><i class="fa-solid fa-arrow-up"></i></button>
           </div>
         </div>
       </div>

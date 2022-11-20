@@ -6,8 +6,8 @@ body {
 }
 
 :root {
-  --base-color: #004aad;
-  --accent-color: #8c52ff;
+  --base-color: hsl(214, 100%, 34%);
+  --accent-color: hsl(260, 100%, 66%);
 }
 
 header {
@@ -80,7 +80,7 @@ h1 {
 }
 
 .big-button:hover {
-  background-color: var(--accent-color);
+  background-color: hsl(214, 100%, 28%);
 }
 
 #message-holder {
@@ -130,6 +130,22 @@ h1 {
 
 #msg {
   width: 80%;
+}
+
+.send-message {
+  width: 10%;
+  aspect-ratio: 1 / 1;
+  font-size: 1.5rem;
+  cursor: pointer;
+  border: none;
+  border-radius: 50%;
+  outline: 0.25rem solid white;
+  background-color: var(--accent-color);
+  color: white;
+}
+
+.send-message:hover {
+  background-color: hsl(260, 100%, 60%);
 }
 
 .message {
@@ -197,6 +213,10 @@ h1 {
   100% {
     transform: rotate(360deg);
   }
+}
+
+button {
+  box-sizing: border-box;
 }
 
 h1 {
