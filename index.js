@@ -75,6 +75,11 @@ g('connect-4').style.top = cy+'px';
  while (true){
   
    // we can have the fetcher in here
+
+   if (audio.duration <= audio.currentTime){
+    audio.currentTime = 0;
+    audio.play();
+   }
  
    if (linking){ // then we need to poll and stuff
  
