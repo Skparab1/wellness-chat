@@ -7,6 +7,7 @@
     <!meta property="og:image" content="https://raw.githubusercontent.com/isolaterecords/isolaterecords.github.io/main/images/isolate.png">
     <title>Wellness Chat</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="spinkit.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!link rel="icon" type="image/x-icon" href="https://raw.githubusercontent.com/isolaterecords/isolaterecords.github.io/main/images/isolate.png">
@@ -16,8 +17,8 @@
 
     <header>
       <h1>Wellness Chat</h1>
+      <div class="sk-plane"></div>
     </header>
-
 
     <div id='loader' class="bigoverlay">
       <img src="images/loading.gif">
@@ -30,7 +31,10 @@
             Enter your name
             <input type="text" id="name" class="message-bar">
           </div>
-          <button id='connector' class="big-button" onclick="connectperson();">Connect to person</button>
+          <button id='connector' class="big-button" onclick="connectperson();">
+            Connect to person
+            <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+          </button>
 
           <button id='c4' class="big-button" onclick="playc4();" style="display: none;">Play connect 4</button>
 
