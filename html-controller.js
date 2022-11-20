@@ -134,7 +134,7 @@ function addothermsg(ct, msg){
   var e = window.event;
   
   var x = e.clientX;
-  var y = e.clientY+window.scrollY-30;//-window.innerHeight;
+  var y = e.clientY+window.scrollY-185;//-window.innerHeight;
   
   //console.log(x,y,width*0.1+1*0.8/8*width+cx, width*0.1+1*0.8/8*width+0.01*width+g('cvs').offsetLeft);
   
@@ -161,7 +161,7 @@ function addothermsg(ct, msg){
   var e = window.event;
   
   var x = e.clientX;
-  var y = e.clientY+window.scrollY-30;
+  var y = e.clientY+window.scrollY-185;
   
   // now figure out if it lies in the boxes
   
@@ -258,4 +258,38 @@ function addothermsg(ct, msg){
   
   return (mycount > othercount || (mycount == othercount && mycolor == 1));
  }
- 
+
+function togglechat(){
+  if (chatopen){
+    g('message-holder').style.opacity = 0;
+    chatopen = false;
+  } else {
+    g('message-holder').style.opacity = 1;
+    chatopen = true;
+  }
+}
+
+function togglegame(){
+  if (openedconnect4){
+    g('connect-4').style.opacity = 0;
+    openedconnect4 = false;
+  } else if (connected){ // can only open if connected
+    g('connect-4').style.opacity = 1;
+    openedconnect4 = true;
+  }
+}
+
+function closeit(){
+  if (openedconnect4){
+    g('connect-4').style.opacity = 0;
+    openedconnect4 = false;
+  } else if (chatopen){
+    g('message-holder').style.opacity = 0;
+    chatopen = false;
+  }
+}
+
+function playfromstart(){
+  audio.currentTime = 0;
+  audio.play();
+}

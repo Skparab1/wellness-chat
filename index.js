@@ -26,6 +26,11 @@ var mycolor = -1;
  
 var combid = '';
 var myturn = false;
+
+var chatopen = true;
+var musicopen = false;
+
+var audio = new Audio('sad_piano.mp3');
  
 var justplayed = 0;
  
