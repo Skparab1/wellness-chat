@@ -59,6 +59,43 @@ h1 {
   border-radius: 2rem;
 }
 
+.options {
+  width: 22rem;
+  height: 6rem;
+  background-color: var(--base-color);
+  color: white;
+  font-size: 2rem;
+  border-radius: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  gap: 1rem;
+}
+
+.buttons {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.buttons button {
+  width: 11.5%;
+  aspect-ratio: 1 / 1;
+  border: none;
+  border-radius: 50%;
+  background-color: var(--accent-color);
+  outline: 0.25rem solid white;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: hsl(260, 100%, 60%)
+}
+
 #connector {
   display: flex;
   align-items: center;
