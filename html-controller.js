@@ -1,17 +1,18 @@
 async function connectperson(){
-  // ok absically we have an id right
+  // ok basically we have an id right
 
   pname = g('name').value;
   id = pname+'00'+randnum;
-
-  openelement('loader');
 
   id = id.replaceAll(' ','');
 
   if (!linking && pname != '' && !connected){ // dont link twice, cant do with no name
     linking = true;
 
-    g('connector').textContent = 'Connecting...';
+    const connectButton = g('connector')
+    connectButton.firstChild.textContent = 'Connecting...';
+    console.log(connectButton);
+    connectButton.children[0].style.display = 'inline-block';
 
     // and then put in the person
     (async () => {

@@ -49,6 +49,7 @@ h1 {
 
 .big-button {
   width: 24rem;
+  height: 6rem;
   cursor: pointer;
   background-color: var(--base-color);
   color: white;
@@ -163,7 +164,7 @@ h1 {
 }
 
 .lds-ring {
-  display: inline-block;
+  display: none;
   position: relative;
   width: 40px;
   height: 40px;

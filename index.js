@@ -92,8 +92,6 @@ g('connect-4').style.top = cy+'px';
 
                       starttime = new Date();
 
-                      closedialogue('loader');
-
                       g('c4').style.display = 'block';
                       g('name-getter').style.height = g('connector').offsetHeight;
 
